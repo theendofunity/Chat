@@ -14,6 +14,8 @@
 		D819321B27D9006B004F96B4 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819321A27D9006B004F96B4 /* UIImageView + Extension.swift */; };
 		D819321E27D9041F004F96B4 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819321D27D9041F004F96B4 /* ButtonFormView.swift */; };
 		D819322027D907AF004F96B4 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819321F27D907AF004F96B4 /* UIStackView + Extension.swift */; };
+		D819322227D90C41004F96B4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819322127D90C41004F96B4 /* SignUpViewController.swift */; };
+		D819322527D90EBE004F96B4 /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819322427D90EBE004F96B4 /* OneLineTextField.swift */; };
 		D81ACAE227D7C4030050B4AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81ACAE127D7C4030050B4AE /* AppDelegate.swift */; };
 		D81ACAE427D7C4030050B4AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81ACAE327D7C4030050B4AE /* SceneDelegate.swift */; };
 		D81ACAE627D7C4030050B4AE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81ACAE527D7C4030050B4AE /* AuthViewController.swift */; };
@@ -29,6 +31,8 @@
 		D819321A27D9006B004F96B4 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		D819321D27D9041F004F96B4 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 		D819321F27D907AF004F96B4 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		D819322127D90C41004F96B4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D819322427D90EBE004F96B4 /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		D81ACADE27D7C4030050B4AE /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81ACAE127D7C4030050B4AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D81ACAE327D7C4030050B4AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		D819322327D90E97004F96B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D819321D27D9041F004F96B4 /* ButtonFormView.swift */,
+				D819322427D90EBE004F96B4 /* OneLineTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D81ACAD527D7C4030050B4AE = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +105,8 @@
 				D81ACAE127D7C4030050B4AE /* AppDelegate.swift */,
 				D81ACAE327D7C4030050B4AE /* SceneDelegate.swift */,
 				D81ACAE527D7C4030050B4AE /* AuthViewController.swift */,
-				D819321D27D9041F004F96B4 /* ButtonFormView.swift */,
+				D819322127D90C41004F96B4 /* SignUpViewController.swift */,
+				D819322327D90E97004F96B4 /* View */,
 				D819321327D8F780004F96B4 /* Extensions */,
 				D81ACAEA27D7C4040050B4AE /* Assets.xcassets */,
 				D81ACAEC27D7C4040050B4AE /* LaunchScreen.storyboard */,
@@ -171,6 +185,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D819322527D90EBE004F96B4 /* OneLineTextField.swift in Sources */,
+				D819322227D90C41004F96B4 /* SignUpViewController.swift in Sources */,
 				D81ACAE627D7C4030050B4AE /* AuthViewController.swift in Sources */,
 				D819321227D8F776004F96B4 /* UIButton + Extension.swift in Sources */,
 				D81ACAE227D7C4030050B4AE /* AppDelegate.swift in Sources */,

@@ -25,6 +25,12 @@ class AuthViewController: UIViewController {
         setupConstraints()
     }
 
+    
+}
+
+//MARK: - Setup Constraints
+
+extension AuthViewController {
     private func setupConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -50,8 +56,8 @@ class AuthViewController: UIViewController {
     }
 }
 
-
 //MARK: - SwiftUI
+
 struct AuthViewControllerProvider: PreviewProvider {
     static var previews: some View {
         ContainerView().edgesIgnoringSafeArea(.all)
