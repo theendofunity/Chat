@@ -21,6 +21,7 @@
 		D81ACAE627D7C4030050B4AE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81ACAE527D7C4030050B4AE /* AuthViewController.swift */; };
 		D81ACAEB27D7C4040050B4AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEA27D7C4040050B4AE /* Assets.xcassets */; };
 		D81ACAEE27D7C4040050B4AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEC27D7C4040050B4AE /* LaunchScreen.storyboard */; };
+		D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B427DE6C040078B45D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D81ACAEA27D7C4040050B4AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D81ACAED27D7C4040050B4AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D81ACAEF27D7C4040050B4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8E926B427DE6C040078B45D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D81ACAE327D7C4030050B4AE /* SceneDelegate.swift */,
 				D81ACAE527D7C4030050B4AE /* AuthViewController.swift */,
 				D819322127D90C41004F96B4 /* SignUpViewController.swift */,
+				D8E926B427DE6C040078B45D /* LoginViewController.swift */,
 				D819322327D90E97004F96B4 /* View */,
 				D819321327D8F780004F96B4 /* Extensions */,
 				D81ACAEA27D7C4040050B4AE /* Assets.xcassets */,
@@ -196,6 +199,7 @@
 				D819321727D8FAD3004F96B4 /* UIColor + Extension.swift in Sources */,
 				D819321B27D9006B004F96B4 /* UIImageView + Extension.swift in Sources */,
 				D819321527D8F9F6004F96B4 /* UIFont + Extension.swift in Sources */,
+				D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */,
 				D81ACAE427D7C4030050B4AE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
