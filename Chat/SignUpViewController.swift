@@ -78,7 +78,7 @@ extension SignUpViewController {
             loginButton
         ],
                                       axis: .horizontal,
-                                      spacing: -1)
+                                      spacing: 10)
         
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -101,8 +101,7 @@ extension SignUpViewController {
         
         NSLayoutConstraint.activate([
             bottomStack.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 60),
-            bottomStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            bottomStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            bottomStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40)
         ])
     }
 }
