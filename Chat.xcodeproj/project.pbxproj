@@ -23,6 +23,7 @@
 		D81ACAEE27D7C4040050B4AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEC27D7C4040050B4AE /* LaunchScreen.storyboard */; };
 		D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B427DE6C040078B45D /* LoginViewController.swift */; };
 		D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */; };
+		D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D81ACAEF27D7C4040050B4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8E926B427DE6C040078B45D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		D819322327D90E97004F96B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */,
 				D819321D27D9041F004F96B4 /* ButtonFormView.swift */,
 				D819322427D90EBE004F96B4 /* OneLineTextField.swift */,
 			);
@@ -198,6 +201,7 @@
 				D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */,
 				D81ACAE227D7C4030050B4AE /* AppDelegate.swift in Sources */,
 				D819322027D907AF004F96B4 /* UIStackView + Extension.swift in Sources */,
+				D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */,
 				D819321E27D9041F004F96B4 /* ButtonFormView.swift in Sources */,
 				D819321927D8FEF9004F96B4 /* UILabel + Extension.swift in Sources */,
 				D819321727D8FAD3004F96B4 /* UIColor + Extension.swift in Sources */,
