@@ -29,4 +29,14 @@ extension UIButton {
             self.layer.shadowOffset = CGSize(width: 0, height: 4)
         }
     }
+    
+    func gooleButton() {
+//        imageView?.image = UIImage(named: "googleLogo")
+        let logo = UIImageView(image: UIImage(named: "googleLogo"), contentMode: .scaleAspectFit)
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(logo)
+        logo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
+        logo.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    }
 }
