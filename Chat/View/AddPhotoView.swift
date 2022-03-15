@@ -9,11 +9,11 @@ import UIKit
 
 class AddPhotoView: UIView {
     var circleImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Person"), contentMode: .scaleAspectFill)
+        let imageView = UIImageView(image: UIImage(named: "Person"), contentMode: .center)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
+        imageView.clipsToBounds = true
         return imageView
     }()
     
