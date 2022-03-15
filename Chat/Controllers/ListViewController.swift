@@ -10,22 +10,52 @@ import SwiftUI
 
 private let reuseIdentifier = "Cell"
 
+struct MChat: Hashable {
+    var userName: String
+    var userImage: UIImage? = UIImage(systemName: "person")
+    var lastMessage: String
+    var id = UUID()
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: MChat, rhs: MChat) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 class ListViewController: UIViewController {
     
+    enum Section: Int, CaseIterable {
+        case activeChats
+    }
+    
+    var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
     var collectionView: UICollectionView!
+    
+    let activeChats: [MChat] = [
+        MChat(userName: "User User1", lastMessage: "HEllo world"),
+        MChat(userName: "User User2", lastMessage: "HEllo world"),
+        MChat(userName: "User User3", lastMessage: "HEllo world"),
+        MChat(userName: "User User4", lastMessage: "HEllo world"),
+        MChat(userName: "User User5", lastMessage: "HEllo world")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setupSearchBar()
+        
+        setupDataSource()
+        reloadData()
     }
     
     func setupCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        
         collectionView.backgroundColor = .mainWhite
         
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -45,7 +75,6 @@ class ListViewController: UIViewController {
     }
     
     func createLayout() -> UICollectionViewLayout {
-        
         let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                   heightDimension: .fractionalHeight(1))
@@ -63,29 +92,28 @@ class ListViewController: UIViewController {
         }
         return layout
     }
-}
-
-// MARK: - UICollectionViewDataSource
-
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    
+    func setupDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            guard let section = Section(rawValue: indexPath.section) else {
+                fatalError()
+            }
+            
+            switch section {
+            case .activeChats:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+                cell.backgroundColor = .blue
+                return cell
+            }
+        })
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .red
-        cell.layer.borderWidth = 1
-        // Configure the cell
+    func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
+        snapshot.appendSections([.activeChats])
+        snapshot.appendItems(activeChats, toSection: .activeChats)
         
-        return cell
+        dataSource?.apply(snapshot)
     }
 }
 
