@@ -13,6 +13,11 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTabBar()
+        setupSearchBar()
+    }
+    
+    func setupTabBar() {
         tabBar.tintColor = .tabbarTintColor
         let listViewController = ListViewController()
         let peopleViewController = PeopleViewController()
@@ -25,6 +30,10 @@ class MainTabBarViewController: UITabBarController {
             createNavigationController(rootViewController: listViewController, title: "Conversations", image: conversationImage),
             createNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage)
         ]
+    }
+    
+    func setupSearchBar() {
+        navigationController?.navigationBar.backgroundColor = .mainWhite
     }
     
     func createNavigationController(rootViewController: UIViewController, title: String, image: UIImage?)  -> UINavigationController {
