@@ -24,4 +24,8 @@ extension UIColor {
     static var textFieldLightGray: UIColor {
         return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
     }
+    
+    static var tabbarTintColor: UIColor {
+        return #colorLiteral(red: 0.5568627451, green: 0.3529411765, blue: 0.968627451, alpha: 1)
+    }
 }
