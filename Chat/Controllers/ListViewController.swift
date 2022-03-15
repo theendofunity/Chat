@@ -21,7 +21,7 @@ class ListViewController: UIViewController {
     }
     
     func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
+        let layout = createLayout()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.delegate = self
@@ -43,6 +43,26 @@ class ListViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = true
         searchController.searchBar.delegate = self
     }
+    
+    func createLayout() -> UICollectionViewLayout {
+        
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                  heightDimension: .fractionalHeight(1))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                   heightDimension: .absolute(86))
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+                                                         subitems: [item])
+            group.contentInsets = .init(top: 0, leading: 0, bottom: 8, trailing: 0)
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = .init(top: 16, leading: 20, bottom: 0, trailing: 20)
+            return section
+        }
+        return layout
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -62,6 +82,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         cell.backgroundColor = .red
+        cell.layer.borderWidth = 1
         // Configure the cell
         
         return cell
