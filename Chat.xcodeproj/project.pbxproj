@@ -29,6 +29,8 @@
 		D8D4B54B27E108BD008FE232 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = D8D4B54927E108BD008FE232 /* waitingChats.json */; };
 		D8D4B54D27E108E2008FE232 /* Bundle + Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54C27E108E2008FE232 /* Bundle + Decodable.swift */; };
 		D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B55027E11552008FE232 /* ActiveChatCell.swift */; };
+		D8E70B1B27E1E272003E2669 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1A27E1E272003E2669 /* GradientView.swift */; };
+		D8E70B1D27E1E308003E2669 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1C27E1E308003E2669 /* Point.swift */; };
 		D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B427DE6C040078B45D /* LoginViewController.swift */; };
 		D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */; };
 		D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */; };
@@ -59,6 +61,8 @@
 		D8D4B54927E108BD008FE232 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		D8D4B54C27E108E2008FE232 /* Bundle + Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Decodable.swift"; sourceTree = "<group>"; };
 		D8D4B55027E11552008FE232 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
+		D8E70B1A27E1E272003E2669 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		D8E70B1C27E1E308003E2669 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		D8E926B427DE6C040078B45D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */,
 				D819321D27D9041F004F96B4 /* ButtonFormView.swift */,
 				D819322427D90EBE004F96B4 /* OneLineTextField.swift */,
+				D8E70B1A27E1E272003E2669 /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 		D8D4B54E27E10AC3008FE232 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8E70B1C27E1E308003E2669 /* Point.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			files = (
 				D819322527D90EBE004F96B4 /* OneLineTextField.swift in Sources */,
 				D819322227D90C41004F96B4 /* SignUpViewController.swift in Sources */,
+				D8E70B1B27E1E272003E2669 /* GradientView.swift in Sources */,
 				D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */,
 				D8D4B54227E0EE6A008FE232 /* MainTabBarViewController.swift in Sources */,
 				D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */,
@@ -281,6 +288,7 @@
 				D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */,
 				D81ACAE427D7C4030050B4AE /* SceneDelegate.swift in Sources */,
 				D8D4B54D27E108E2008FE232 /* Bundle + Decodable.swift in Sources */,
+				D8E70B1D27E1E308003E2669 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

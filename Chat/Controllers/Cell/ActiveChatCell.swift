@@ -17,7 +17,7 @@ class ActiveChatCell: UICollectionViewCell {
     let userImageView = UIImageView()
     let usernameLabel = UILabel(text: "Name", font: .lao20)
     let lastMessageLabel = UILabel(text: "Message", font: .lao18)
-    let gradientView = UIView()
+    let gradientView = GradientView(from: .topTrailing, to: .bottomLeading, startColor: .systemPurple, endColor: .systemBlue)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +40,7 @@ extension ActiveChatCell {
         
         backgroundColor = .white
 //        userImageView.backgroundColor = .blue
-        gradientView.backgroundColor = .blue
+//        gradientView.backgroundColor = .blue
         layer.cornerRadius = 4
         layer.masksToBounds = true
 
