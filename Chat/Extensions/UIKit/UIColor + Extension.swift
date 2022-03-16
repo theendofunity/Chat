@@ -9,6 +9,14 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat = 1.0) {
+        let r, g, b: CGFloat
+        r = CGFloat(red) / 255.0
+        g = CGFloat(green) / 255.0
+        b = CGFloat(blue) / 255.0
+        self.init(red: r, green: g, blue: b, alpha: alpha)
+    }
+    
     static var buttonRed: UIColor {
         return #colorLiteral(red: 0.8599731326, green: 0.1256897449, blue: 0.1353026032, alpha: 1)
     }
@@ -27,5 +35,9 @@ extension UIColor {
     
     static var tabbarTintColor: UIColor {
         return #colorLiteral(red: 0.5568627451, green: 0.3529411765, blue: 0.968627451, alpha: 1)
+    }
+    
+    static var headerGray: UIColor {
+        return UIColor(red: 146, green: 146, blue: 146)
     }
 }

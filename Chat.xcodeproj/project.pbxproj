@@ -33,6 +33,7 @@
 		D8E70B1D27E1E308003E2669 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1C27E1E308003E2669 /* Point.swift */; };
 		D8E70B1F27E1EDFD003E2669 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1E27E1EDFD003E2669 /* WaitingChatCell.swift */; };
 		D8E70B2227E1EFAA003E2669 /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B2127E1EFAA003E2669 /* SelfConfiguringCell.swift */; };
+		D8E70B2427E1F941003E2669 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B2327E1F941003E2669 /* SectionHeader.swift */; };
 		D8E926B527DE6C040078B45D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B427DE6C040078B45D /* LoginViewController.swift */; };
 		D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */; };
 		D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */; };
@@ -67,6 +68,7 @@
 		D8E70B1C27E1E308003E2669 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		D8E70B1E27E1EDFD003E2669 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		D8E70B2127E1EFAA003E2669 /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
+		D8E70B2327E1F941003E2669 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		D8E926B427DE6C040078B45D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D8E926B627DE72B70078B45D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		D8E926B827DE7A2B0078B45D /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */,
 				D8D4B53F27E0EDE1008FE232 /* SignIn&Auth */,
 				D8D4B54F27E11535008FE232 /* Cell */,
+				D8E70B2327E1F941003E2669 /* SectionHeader.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */,
 				D81ACAE227D7C4030050B4AE /* AppDelegate.swift in Sources */,
 				D819322027D907AF004F96B4 /* UIStackView + Extension.swift in Sources */,
+				D8E70B2427E1F941003E2669 /* SectionHeader.swift in Sources */,
 				D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */,
 				D819321E27D9041F004F96B4 /* ButtonFormView.swift in Sources */,
 				D8D4B54627E0EF43008FE232 /* ListViewController.swift in Sources */,

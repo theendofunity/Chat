@@ -28,6 +28,15 @@ class ListViewController: UIViewController {
     enum Section: Int, CaseIterable {
         case waitingChats
         case activeChats
+        
+        func description() -> String {
+            switch self {
+            case .waitingChats:
+                return "Waiting chats"
+            case .activeChats:
+                return "Active chats"
+            }
+        }
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
@@ -50,7 +59,7 @@ class ListViewController: UIViewController {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuseId)
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
-        
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.backgroundColor = .mainWhite
         
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -103,6 +112,17 @@ extension ListViewController {
                 return self.configure(cellType: ActiveChatCell.self, chat: chat, indexPath: indexPath)
             }
         })
+        dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader
+            else {
+                fatalError()
+            }
+            guard let section = Section(rawValue: indexPath.section) else {
+                fatalError()
+            }
+            header.configure(text: section.description(), font: .lao20, textColor: .headerGray)
+            return header
+        }
     }
 }
 
@@ -122,6 +142,10 @@ extension ListViewController {
                 return self.createActiveChatsSection()
             }
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 16
+        layout.configuration = config
+        
         return layout
     }
     
@@ -138,6 +162,9 @@ extension ListViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8
         section.contentInsets = .init(top: 16, leading: 16, bottom: 0, trailing: 16)
+        let header = createSectionHeader()
+        section.boundarySupplementaryItems = [header]
+        
         return section
     }
     
@@ -154,7 +181,18 @@ extension ListViewController {
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 16
         section.contentInsets = .init(top: 16, leading: 16, bottom: 0, trailing: 16)
+        let header = createSectionHeader()
+        section.boundarySupplementaryItems = [header]
         return section
+    }
+    
+    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let sectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .estimated(1))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize,
+                                                                        elementKind: UICollectionView.elementKindSectionHeader,
+                                                                        alignment: .top)
+        return sectionHeader
     }
 }
 
