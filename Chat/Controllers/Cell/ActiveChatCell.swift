@@ -70,8 +70,7 @@ extension ActiveChatCell: SelfConfiguringCell {
     }
     
     func configure(with value: MChat) {
-        // TODO: Fix to named!!!
-        userImageView.image = UIImage(systemName: value.userImageString)
+        userImageView.image = UIImage(named: value.userImageString)
         usernameLabel.text = value.username
         lastMessageLabel.text = value.lastMessage
     }

@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "dce92ad-a4d890fb-40ec-4b0b-927d-c675f40053d1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "dce92ad-a4d890fb-40ec-4b0b-927d-c675f40053d1-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "dce92ad-a4d890fb-40ec-4b0b-927d-c675f40053d1-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
