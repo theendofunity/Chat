@@ -8,20 +8,7 @@
 import UIKit
 import SwiftUI
 
-struct MChat: Hashable, Decodable {
-    var username: String
-    var userImageString: String
-    var lastMessage: String
-    var id: Int
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: MChat, rhs: MChat) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
+
 
 class ListViewController: UIViewController {
     
@@ -39,11 +26,11 @@ class ListViewController: UIViewController {
         }
     }
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
+    var dataSource: UICollectionViewDiffableDataSource<Section, Chat>?
     var collectionView: UICollectionView!
     
-    let activeChats: [MChat] = Bundle.main.decode(_type: [MChat].self, from: "activeChats.json")
-    let waitingChats: [MChat] = Bundle.main.decode(_type: [MChat].self, from: "waitingChats.json")
+    let activeChats: [Chat] = Bundle.main.decode(_type: [Chat].self, from: "activeChats.json")
+    let waitingChats: [Chat] = Bundle.main.decode(_type: [Chat].self, from: "waitingChats.json")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +66,7 @@ class ListViewController: UIViewController {
     }
     
     func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Chat>()
         snapshot.appendSections([.waitingChats, .activeChats])
         snapshot.appendItems(waitingChats, toSection: .waitingChats)
         snapshot.appendItems(activeChats, toSection: .activeChats)
@@ -91,7 +78,7 @@ class ListViewController: UIViewController {
 // MARK: - DataSource
 
 extension ListViewController {
-    func configure<T: SelfConfiguringCell>(cellType: T.Type, chat: MChat, indexPath: IndexPath) -> T {
+    func configure<T: SelfConfiguringCell>(cellType: T.Type, chat: Chat, indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else {
             fatalError()
         }
@@ -100,7 +87,7 @@ extension ListViewController {
     }
     
     func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { collectionView, indexPath, chat in
+        dataSource = UICollectionViewDiffableDataSource<Section, Chat>(collectionView: collectionView, cellProvider: { collectionView, indexPath, chat in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError()
             }

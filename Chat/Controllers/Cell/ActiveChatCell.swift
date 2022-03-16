@@ -69,7 +69,7 @@ extension ActiveChatCell: SelfConfiguringCell {
         return NSStringFromClass(ActiveChatCell.self)
     }
     
-    func configure(with value: MChat) {
+    func configure(with value: Chat) {
         userImageView.image = UIImage(named: value.userImageString)
         usernameLabel.text = value.username
         lastMessageLabel.text = value.lastMessage

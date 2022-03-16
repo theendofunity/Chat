@@ -43,7 +43,7 @@ extension WaitingChatCell: SelfConfiguringCell {
         return NSStringFromClass(WaitingChatCell.self)
     }
     
-    func configure(with value: MChat) {
+    func configure(with value: Chat) {
         userImageView.image = UIImage(named: value.userImageString)
     }
     
