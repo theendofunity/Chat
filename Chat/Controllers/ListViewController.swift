@@ -48,8 +48,8 @@ class ListViewController: UIViewController {
     func setupCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId2")
-        collectionView!.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
+        collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuseId)
+        collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
         
         collectionView.backgroundColor = .mainWhite
         
@@ -82,7 +82,6 @@ class ListViewController: UIViewController {
 // MARK: - DataSource
 
 extension ListViewController {
-    
     func configure<T: SelfConfiguringCell>(cellType: T.Type, chat: MChat, indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else {
             fatalError()
@@ -99,9 +98,7 @@ extension ListViewController {
             
             switch section {
             case .waitingChats:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId2", for: indexPath)
-                cell.backgroundColor = .systemRed
-                return cell
+                return self.configure(cellType: WaitingChatCell.self, chat: chat, indexPath: indexPath)
             case .activeChats:
                 return self.configure(cellType: ActiveChatCell.self, chat: chat, indexPath: indexPath)
             }

@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 
 class PeopleViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue

@@ -29,7 +29,6 @@ class GradientView: UIView {
     }
     
     func setupGradient(from: Point, to: Point, startColor: UIColor?, endColor: UIColor?) {
-        backgroundColor = .red
         layer.addSublayer(gradientLayer)
         setupColors(startColor: startColor, endColor: endColor)
         gradientLayer.startPoint = from.point

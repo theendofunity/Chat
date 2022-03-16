@@ -8,11 +8,6 @@
 import UIKit
 import SwiftUI
 
-protocol SelfConfiguringCell: AnyObject {
-    static var reuseId: String { get }
-    func configure(with value: MChat)
-}
-
 class ActiveChatCell: UICollectionViewCell {
     let userImageView = UIImageView()
     let usernameLabel = UILabel(text: "Name", font: .lao20)
@@ -39,8 +34,6 @@ extension ActiveChatCell {
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         
         backgroundColor = .white
-//        userImageView.backgroundColor = .blue
-//        gradientView.backgroundColor = .blue
         layer.cornerRadius = 4
         layer.masksToBounds = true
 
