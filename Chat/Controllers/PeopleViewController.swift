@@ -50,7 +50,7 @@ class PeopleViewController: UIViewController {
     func setupCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.backgroundColor = .mainWhite
         
@@ -70,15 +70,13 @@ class PeopleViewController: UIViewController {
 
 extension PeopleViewController {
     func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, User>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<Section, User>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError()
             }
             switch section {
             case .users:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
-                cell.backgroundColor = .blue
-                return cell
+                return self.configure(cellType: UserCell.self, value: item, indexPath: indexPath)
             }
         })
         
@@ -94,6 +92,14 @@ extension PeopleViewController {
             header.configure(text: section.description(usersCount: items.count), font: .systemFont(ofSize: 36), textColor: .label)
             return header
         }
+    }
+    
+    func configure<T: SelfConfiguringCell, U: Hashable>(cellType: T.Type, value: U, indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else {
+            fatalError()
+        }
+        cell.configure(with: value)
+        return cell
     }
 }
 

@@ -22,6 +22,7 @@
 		D81ACAEB27D7C4040050B4AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEA27D7C4040050B4AE /* Assets.xcassets */; };
 		D81ACAEE27D7C4040050B4AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEC27D7C4040050B4AE /* LaunchScreen.storyboard */; };
 		D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */; };
+		D88AE2E027E353CE003DD100 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88AE2DF27E353CE003DD100 /* UserCell.swift */; };
 		D8D4B54227E0EE6A008FE232 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54127E0EE6A008FE232 /* MainTabBarViewController.swift */; };
 		D8D4B54427E0EEC8008FE232 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */; };
 		D8D4B54627E0EF43008FE232 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54527E0EF43008FE232 /* ListViewController.swift */; };
@@ -60,6 +61,7 @@
 		D81ACAED27D7C4040050B4AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D81ACAEF27D7C4040050B4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl + Extension.swift"; sourceTree = "<group>"; };
+		D88AE2DF27E353CE003DD100 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D8D4B54127E0EE6A008FE232 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D8D4B54527E0EF43008FE232 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				D8D4B55027E11552008FE232 /* ActiveChatCell.swift */,
 				D8E70B1E27E1EDFD003E2669 /* WaitingChatCell.swift */,
+				D88AE2DF27E353CE003DD100 /* UserCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */,
 				D819321E27D9041F004F96B4 /* ButtonFormView.swift in Sources */,
 				D8D4B54627E0EF43008FE232 /* ListViewController.swift in Sources */,
+				D88AE2E027E353CE003DD100 /* UserCell.swift in Sources */,
 				D8D4B54427E0EEC8008FE232 /* PeopleViewController.swift in Sources */,
 				D819321927D8FEF9004F96B4 /* UILabel + Extension.swift in Sources */,
 				D819321727D8FAD3004F96B4 /* UIColor + Extension.swift in Sources */,

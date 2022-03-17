@@ -39,13 +39,13 @@ extension WaitingChatCell {
 }
 
 extension WaitingChatCell: SelfConfiguringCell {
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat = value as? Chat else { return }
+        
+        userImageView.image = UIImage(named: chat.userImageString)
+    }
+    
     static var reuseId: String {
         return NSStringFromClass(WaitingChatCell.self)
     }
-    
-    func configure(with value: Chat) {
-        userImageView.image = UIImage(named: value.userImageString)
-    }
-    
-    
 }

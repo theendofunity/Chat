@@ -65,14 +65,20 @@ extension ActiveChatCell {
 }
 
 extension ActiveChatCell: SelfConfiguringCell {
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat = value as? Chat else { return }
+        
+        userImageView.image = UIImage(named: chat.userImageString)
+        usernameLabel.text = chat.username
+        lastMessageLabel.text = chat.lastMessage
+    }
+    
     static var reuseId: String {
         return NSStringFromClass(ActiveChatCell.self)
     }
     
     func configure(with value: Chat) {
-        userImageView.image = UIImage(named: value.userImageString)
-        usernameLabel.text = value.username
-        lastMessageLabel.text = value.lastMessage
+        
     }
 }
 

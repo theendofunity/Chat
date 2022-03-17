@@ -78,11 +78,11 @@ class ListViewController: UIViewController {
 // MARK: - DataSource
 
 extension ListViewController {
-    func configure<T: SelfConfiguringCell>(cellType: T.Type, chat: Chat, indexPath: IndexPath) -> T {
+    func configure<T: SelfConfiguringCell, U: Hashable>(cellType: T.Type, value: U, indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else {
             fatalError()
         }
-        cell.configure(with: chat)
+        cell.configure(with: value)
         return cell
     }
     
@@ -94,9 +94,9 @@ extension ListViewController {
             
             switch section {
             case .waitingChats:
-                return self.configure(cellType: WaitingChatCell.self, chat: chat, indexPath: indexPath)
+                return self.configure(cellType: WaitingChatCell.self, value: chat, indexPath: indexPath)
             case .activeChats:
-                return self.configure(cellType: ActiveChatCell.self, chat: chat, indexPath: indexPath)
+                return self.configure(cellType: ActiveChatCell.self, value: chat, indexPath: indexPath)
             }
         })
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
