@@ -20,7 +20,7 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    let peoples = Bundle.main.decode(_type: [User].self, from: "users.json")
+    let users = Bundle.main.decode(_type: [User].self, from: "users.json")
     var collectionView: UICollectionView! = nil
     var dataSource: UICollectionViewDiffableDataSource<Section, User>! = nil
     
@@ -32,7 +32,7 @@ class PeopleViewController: UIViewController {
         
         setupCollectionView()
         setupDataSource()
-        reloadData()
+        reloadData(with: nil)
     }
 
     func setupSearchBar() {
@@ -58,10 +58,13 @@ class PeopleViewController: UIViewController {
         view.addSubview(collectionView)
     }
     
-    func reloadData() {
+    func reloadData(with name: String?) {
+        let filtered = users.filter {
+            $0.contains(filter: name)
+        }
         var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
         snapshot.appendSections([.users])
-        snapshot.appendItems(peoples, toSection: .users)
+        snapshot.appendItems(filtered, toSection: .users)
         dataSource?.apply(snapshot)
     }
 }
@@ -158,7 +161,7 @@ extension PeopleViewController {
 
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        reloadData(with: searchText)
     }
 }
 
