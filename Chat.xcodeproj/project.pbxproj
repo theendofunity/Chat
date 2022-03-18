@@ -23,6 +23,7 @@
 		D81ACAEE27D7C4040050B4AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81ACAEC27D7C4040050B4AE /* LaunchScreen.storyboard */; };
 		D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */; };
 		D88AE2E027E353CE003DD100 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88AE2DF27E353CE003DD100 /* UserCell.swift */; };
+		D8B0184F27E4E96100BCBC86 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */; };
 		D8D4B54227E0EE6A008FE232 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54127E0EE6A008FE232 /* MainTabBarViewController.swift */; };
 		D8D4B54427E0EEC8008FE232 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */; };
 		D8D4B54627E0EF43008FE232 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54527E0EF43008FE232 /* ListViewController.swift */; };
@@ -62,6 +63,7 @@
 		D81ACAEF27D7C4040050B4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		D88AE2DF27E353CE003DD100 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D8D4B54127E0EE6A008FE232 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		D8D4B54527E0EF43008FE232 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				D8D4B54127E0EE6A008FE232 /* MainTabBarViewController.swift */,
 				D8D4B54527E0EF43008FE232 /* ListViewController.swift */,
 				D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */,
+				D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */,
 				D8D4B53F27E0EDE1008FE232 /* SignIn&Auth */,
 				D8D4B54F27E11535008FE232 /* Cell */,
 				D8E70B2527E23CAE003E2669 /* Header */,
@@ -316,6 +319,7 @@
 				D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */,
 				D81ACAE227D7C4030050B4AE /* AppDelegate.swift in Sources */,
 				D819322027D907AF004F96B4 /* UIStackView + Extension.swift in Sources */,
+				D8B0184F27E4E96100BCBC86 /* ProfileViewController.swift in Sources */,
 				D8E70B2427E1F941003E2669 /* SectionHeader.swift in Sources */,
 				D8E926B927DE7A2B0078B45D /* AddPhotoView.swift in Sources */,
 				D819321E27D9041F004F96B4 /* ButtonFormView.swift in Sources */,

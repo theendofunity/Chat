@@ -1,13 +1,13 @@
 [
     {
         "username": "Bob River",
-        "userImageString": "cat",
+        "userImageString": "capibara",
         "lastMessage": "How are you?",
         "id": 1
     },
     {
         "username": "John Black",
-        "userImageString": "cat",
+        "userImageString": "capibara",
         "lastMessage": "Where are you?",
         "id": 2
     },
@@ -19,7 +19,7 @@
     },
     {
         "username": "Alex Film",
-        "userImageString": "cat",
+        "userImageString": "capibara",
         "lastMessage": "How old are you?",
         "id": 4
     },
