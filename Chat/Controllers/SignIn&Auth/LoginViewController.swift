@@ -32,10 +32,35 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .white
         googleButton.gooleButton()
         setupConstraints()
+        
+        googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signUoButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+}
+
+extension LoginViewController {
+    @objc func loginButtonTapped() {
+        AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { result in
+            switch result {
+            case .success(_):
+                self.showAlert(title: "Success!", message: "User successfully sign in!")
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        }
+    }
+    
+    @objc func googleButtonTapped() {
+        
+    }
+    
+    @objc func signUpButtonTapped() {
+        
     }
 }
 
@@ -52,10 +77,10 @@ extension LoginViewController {
             passwordTextField],
                                         axis: .vertical,
                                         spacing: 0)
-       
+        
         let bottomStack = UIStackView(arrangedSubviews: [
             needAnAccountLabel,
-                                         signUoButton],
+            signUoButton],
                                       axis: .horizontal,
                                       spacing: 10)
         
@@ -77,7 +102,7 @@ extension LoginViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(mainStack)
         view.addSubview(bottomStack)
-
+        
         NSLayoutConstraint.activate([
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),

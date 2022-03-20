@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Hashable, Decodable {
+struct MUser: Hashable, Decodable {
     var username: String
     var avatarStringURL: String
     var id: Int
@@ -16,7 +16,7 @@ struct User: Hashable, Decodable {
         hasher.combine(id)
     }
     
-    static func == (lhs: User, rhs: User) -> Bool {
+    static func == (lhs: MUser, rhs: MUser) -> Bool {
         return lhs.id == rhs.id
     }
     

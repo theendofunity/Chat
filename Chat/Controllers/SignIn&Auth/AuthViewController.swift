@@ -19,10 +19,17 @@ class AuthViewController: UIViewController {
     var emailButton = UIButton(title: "Email", titleColor: .white, backgroundColor: .buttonBlack, isShadow: false)
     var loginButton = UIButton(title: "Login", titleColor: .buttonRed, backgroundColor: .white, isShadow: true)
     
+    let signUpViewController = SignUpViewController()
+    let loginViewController = LoginViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
+        
+        googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
+        emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
 
     
@@ -53,6 +60,19 @@ extension AuthViewController {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
+    }
+}
+
+extension AuthViewController {
+    @objc func googleButtonTapped() {
+    }
+    
+    @objc func emailButtonTapped() {
+        present(signUpViewController, animated: true, completion: nil)
+    }
+    
+    @objc func loginButtonTapped() {
+        present(loginViewController , animated: true, completion: nil)
     }
 }
 

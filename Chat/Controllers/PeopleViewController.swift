@@ -20,9 +20,9 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    let users = Bundle.main.decode(_type: [User].self, from: "users.json")
+    let users = Bundle.main.decode(_type: [MUser].self, from: "users.json")
     var collectionView: UICollectionView! = nil
-    var dataSource: UICollectionViewDiffableDataSource<Section, User>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Section, MUser>! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class PeopleViewController: UIViewController {
         let filtered = users.filter {
             $0.contains(filter: name)
         }
-        var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MUser>()
         snapshot.appendSections([.users])
         snapshot.appendItems(filtered, toSection: .users)
         dataSource?.apply(snapshot)
@@ -73,7 +73,7 @@ class PeopleViewController: UIViewController {
 
 extension PeopleViewController {
     func setupDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, User>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+        dataSource = UICollectionViewDiffableDataSource<Section, MUser>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError()
             }

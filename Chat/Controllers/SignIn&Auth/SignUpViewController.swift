@@ -33,10 +33,31 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        
-        
+
         setupConstraints()
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+}
+
+extension SignUpViewController {
+    @objc func signUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text,
+                                    password: passwordTextField.text,
+                                    confirmPassword: confirmPasswordTextField.text) { result in
+            switch result {
+                
+            case .success(_):
+                self.showAlert(title: "Success!", message: "User successfully registered!")
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        }
+    }
+    
+    @objc func loginButtonTapped() {
+        
     }
 }
 
