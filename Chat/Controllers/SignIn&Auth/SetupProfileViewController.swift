@@ -71,7 +71,9 @@ extension SetupProfileViewController {
         view.addSubview(stack)
         
         NSLayoutConstraint.activate([
-            setUpProfileLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            goToChatsButton.heightAnchor.constraint(equalToConstant: 60),
+            
+            setUpProfileLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
             setUpProfileLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             fillImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -81,7 +83,6 @@ extension SetupProfileViewController {
             stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            goToChatsButton.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

@@ -30,6 +30,9 @@ class AuthViewController: UIViewController {
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        signUpViewController.delegate = self
+        loginViewController.delegate = self
     }
 
     
@@ -68,10 +71,21 @@ extension AuthViewController {
     }
     
     @objc func emailButtonTapped() {
-        present(signUpViewController, animated: true, completion: nil)
+        openSignUp()
     }
     
     @objc func loginButtonTapped() {
+        openLogin()
+    }
+}
+
+extension AuthViewController: AuthNavigationDelegate {
+    func openSignUp() {
+        present(signUpViewController, animated: true, completion: nil)
+
+    }
+    
+    func openLogin() {
         present(loginViewController , animated: true, completion: nil)
     }
 }

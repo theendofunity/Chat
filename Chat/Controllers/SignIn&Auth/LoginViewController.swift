@@ -23,13 +23,16 @@ class LoginViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20)
     let loginButton = UIButton(title: "Login", titleColor: .white, backgroundColor: .buttonBlack, isShadow: false)
     var signUoButton: UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.buttonRed, for: .normal)
         button.titleLabel?.font = .avenir20
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         return button
     }
     
+    weak var delegate: AuthNavigationDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +42,6 @@ class LoginViewController: UIViewController {
         
         googleButton.addTarget(self, action: #selector(googleButtonTapped), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        signUoButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -48,7 +50,9 @@ extension LoginViewController {
         AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { result in
             switch result {
             case .success(_):
-                self.showAlert(title: "Success!", message: "User successfully sign in!")
+                self.showAlert(title: "Success!", message: "User successfully sign in!") {
+                    self.present(MainTabBarViewController(), animated: true)
+                }
             case .failure(let error):
                 self.showError(error: error)
             }
@@ -60,7 +64,11 @@ extension LoginViewController {
     }
     
     @objc func signUpButtonTapped() {
-        
+        print(#function)
+
+        dismiss(animated: true) {
+            self.delegate?.openSignUp()
+        }
     }
 }
 

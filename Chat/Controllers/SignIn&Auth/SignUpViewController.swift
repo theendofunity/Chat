@@ -19,10 +19,12 @@ class SignUpViewController: UIViewController {
 
     let signUpButton = UIButton(title: "Sign up", titleColor: .white, backgroundColor: .buttonBlack, isShadow: false)
     var loginButton: UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.buttonRed, for: .normal)
         button.titleLabel?.font = .avenir20
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+
         return button
     }
     
@@ -30,6 +32,8 @@ class SignUpViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20)
     let confirmPasswordTextField = OneLineTextField(font: .avenir20)
 
+    weak var delegate: AuthNavigationDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -37,7 +41,6 @@ class SignUpViewController: UIViewController {
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
 }
 
@@ -49,7 +52,9 @@ extension SignUpViewController {
             switch result {
                 
             case .success(_):
-                self.showAlert(title: "Success!", message: "User successfully registered!")
+                self.showAlert(title: "Success!", message: "User successfully registered!") {
+                    self.present(SetupProfileViewController(), animated: true)
+                }
             case .failure(let error):
                 self.showError(error: error)
             }
@@ -57,7 +62,10 @@ extension SignUpViewController {
     }
     
     @objc func loginButtonTapped() {
-        
+        print(#function)
+        dismiss(animated: true) {
+            self.delegate?.openLogin()
+        }
     }
 }
 
