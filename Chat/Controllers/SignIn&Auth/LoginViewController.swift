@@ -105,13 +105,13 @@ extension LoginViewController {
         
         NSLayoutConstraint.activate([
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
             
             mainStack.topAnchor.constraint(equalTo: welcomeLabel.topAnchor, constant: 100),
             mainStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            bottomStack.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 40),
+            bottomStack.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 20),
             bottomStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40)
         ])
     }
