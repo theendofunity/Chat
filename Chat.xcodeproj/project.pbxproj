@@ -27,6 +27,7 @@
 		D83A0AC127E7A1810078729C /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0AC027E7A1810078729C /* UIViewController + Extension.swift */; };
 		D83A0AC327E7A6B10078729C /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0AC227E7A6B10078729C /* Validators.swift */; };
 		D83A0AC527E7ABE70078729C /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0AC427E7ABE70078729C /* AuthError.swift */; };
+		D83A0AC827E7B52D0078729C /* AuthNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0AC727E7B52D0078729C /* AuthNavigationDelegate.swift */; };
 		D86BDA4E27E5BF56001480E8 /* InsertableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BDA4D27E5BF56001480E8 /* InsertableTextField.swift */; };
 		D86BDA5027E5C2C2001480E8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BDA4F27E5C2C2001480E8 /* UIView + Extension.swift */; };
 		D86BDA5227E6114E001480E8 /* ChatRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BDA5127E6114E001480E8 /* ChatRequestViewController.swift */; };
@@ -77,6 +78,7 @@
 		D83A0AC027E7A1810078729C /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		D83A0AC227E7A6B10078729C /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		D83A0AC427E7ABE70078729C /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		D83A0AC727E7B52D0078729C /* AuthNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationDelegate.swift; sourceTree = "<group>"; };
 		D86BDA4D27E5BF56001480E8 /* InsertableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableTextField.swift; sourceTree = "<group>"; };
 		D86BDA4F27E5C2C2001480E8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		D86BDA5127E6114E001480E8 /* ChatRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequestViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				D8D4B54027E0EDF8008FE232 /* Controllers */,
 				D819322327D90E97004F96B4 /* View */,
 				D8E70B2027E1EF9B003E2669 /* Protocols */,
+				D83A0AC627E7B2CB0078729C /* Helpers */,
 				D819321327D8F780004F96B4 /* Extensions */,
 				D8D4B54727E1089F008FE232 /* Data */,
 				D81ACAEA27D7C4040050B4AE /* Assets.xcassets */,
@@ -212,10 +215,17 @@
 			isa = PBXGroup;
 			children = (
 				D83A0ABE27E79D210078729C /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D83A0AC627E7B2CB0078729C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
 				D83A0AC227E7A6B10078729C /* Validators.swift */,
 				D83A0AC427E7ABE70078729C /* AuthError.swift */,
 			);
-			path = Services;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D8D4B53F27E0EDE1008FE232 /* SignIn&Auth */ = {
@@ -278,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				D8E70B2127E1EFAA003E2669 /* SelfConfiguringCell.swift */,
+				D83A0AC727E7B52D0078729C /* AuthNavigationDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -412,6 +423,7 @@
 				D819322227D90C41004F96B4 /* SignUpViewController.swift in Sources */,
 				D8E70B2227E1EFAA003E2669 /* SelfConfiguringCell.swift in Sources */,
 				D8E70B1B27E1E272003E2669 /* GradientView.swift in Sources */,
+				D83A0AC827E7B52D0078729C /* AuthNavigationDelegate.swift in Sources */,
 				D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */,
 				D8D4B54227E0EE6A008FE232 /* MainTabBarViewController.swift in Sources */,
 				D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */,
