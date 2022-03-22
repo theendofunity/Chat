@@ -51,9 +51,9 @@ extension SignUpViewController {
                                     confirmPassword: confirmPasswordTextField.text) { result in
             switch result {
                 
-            case .success(_):
+            case .success(let user):
                 self.showAlert(title: "Success!", message: "User successfully registered!") {
-                    self.present(SetupProfileViewController(), animated: true)
+                    self.present(SetupProfileViewController(currentUser: user), animated: true)
                 }
             case .failure(let error):
                 self.showError(error: error)

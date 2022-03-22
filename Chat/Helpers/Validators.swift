@@ -49,4 +49,14 @@ class Validators {
         }
         return true
     }
+    
+    static func isFilled(fields: [String?]) -> Bool {
+        for field in fields {
+            guard let field = field,
+                  !field.isEmpty else {
+                      return false
+                  }
+        }
+        return true
+    }
 }

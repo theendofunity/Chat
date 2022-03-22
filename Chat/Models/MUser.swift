@@ -10,7 +10,22 @@ import Foundation
 struct MUser: Hashable, Decodable {
     var username: String
     var avatarStringURL: String
-    var id: Int
+    var id: String
+    var email: String
+    var description: String
+    var sex: String
+    
+    var representation: [String : Any] {
+        let rep: [String : Any] = [
+            "username" : username,
+            "avatarStringURL" : avatarStringURL,
+            "uid" : id,
+            "email" : email,
+            "description" : description,
+            "sex" : sex
+        ]
+        return rep
+    }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
