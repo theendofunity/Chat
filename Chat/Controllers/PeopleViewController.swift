@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import FirebaseAuth
 
 class PeopleViewController: UIViewController {
     enum Section: Int, CaseIterable {
@@ -20,7 +21,7 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    let users = Bundle.main.decode(_type: [MUser].self, from: "users.json")
+    let users: [MUser] = []
     var collectionView: UICollectionView! = nil
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>! = nil
     
@@ -29,10 +30,15 @@ class PeopleViewController: UIViewController {
         view.backgroundColor = .systemBlue
         
         setupSearchBar()
+        setupNavigationBar()
         
         setupCollectionView()
         setupDataSource()
         reloadData(with: nil)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(signOut))
     }
 
     func setupSearchBar() {
@@ -66,6 +72,22 @@ class PeopleViewController: UIViewController {
         snapshot.appendSections([.users])
         snapshot.appendItems(filtered, toSection: .users)
         dataSource?.apply(snapshot)
+    }
+    
+    @objc func signOut() {
+        let alert = UIAlertController(title: nil, message: "Are you sure to sign out?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let signOutAction = UIAlertAction(title: "Sign out", style: .destructive) {_ in
+            do {
+                try Auth.auth().signOut()
+                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+            } catch {
+                
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(signOutAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

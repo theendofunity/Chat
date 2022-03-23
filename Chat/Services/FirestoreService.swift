@@ -44,6 +44,20 @@ class FirestoreService {
                 completion(.success(mUser))
             }
         }
-
+    }
+    
+    func getUserData(user: User, completion: @escaping ((Result<MUser, Error>) -> Void)) {
+        let docRef = usersRef.document(user.uid)
+        docRef.getDocument { document, error in
+            guard let document = document, document.exists else {
+                completion(.failure(UserError.cantGetUserInfo))
+                return
+            }
+            guard let mUser = MUser(document: document) else {
+                completion(.failure(UserError.cantUnwrapUserData))
+                return
+            }
+            completion(.success(mUser))
+        }
     }
 }

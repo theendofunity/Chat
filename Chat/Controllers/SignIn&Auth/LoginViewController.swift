@@ -49,9 +49,16 @@ extension LoginViewController {
     @objc func loginButtonTapped() {
         AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { result in
             switch result {
-            case .success(_):
+            case .success(let user):
                 self.showAlert(title: "Success!", message: "User successfully sign in!") {
-                    self.present(MainTabBarViewController(), animated: true)
+                    FirestoreService.shared.getUserData(user: user) { result in
+                        switch result {
+                        case .success(_):
+                            self.present(MainTabBarViewController(), animated: true, completion: nil)
+                        case .failure(_):
+                            self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                        }
+                    }
                 }
             case .failure(let error):
                 self.showError(error: error)

@@ -29,8 +29,8 @@ class ListViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Chat>?
     var collectionView: UICollectionView!
     
-    let activeChats: [Chat] = Bundle.main.decode(_type: [Chat].self, from: "activeChats.json")
-    let waitingChats: [Chat] = Bundle.main.decode(_type: [Chat].self, from: "waitingChats.json")
+    let activeChats: [Chat] = []
+    let waitingChats: [Chat] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,6 +10,8 @@ import Foundation
 enum UserError {
     case notFilled
     case photoNotExist
+    case cantGetUserInfo
+    case cantUnwrapUserData
 }
 
 extension UserError: LocalizedError {
@@ -19,6 +21,10 @@ extension UserError: LocalizedError {
             return "Need to fill all fields"
         case .photoNotExist:
             return "Photo not exist"
+        case .cantGetUserInfo:
+            return "Can't get user info from firebase"
+        case .cantUnwrapUserData:
+            return "Can't unwrap user info"
         }
     }
 }
