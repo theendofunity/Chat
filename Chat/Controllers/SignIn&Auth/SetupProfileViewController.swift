@@ -41,6 +41,10 @@ class SetupProfileViewController: UIViewController {
         view.backgroundColor = .white
         setupConstraints()
         
+        if let username = currentUser.displayName {
+            fullNameTextField.text = username
+        }
+        
         goToChatsButton.addTarget(self, action: #selector(goToChats), for: .touchUpInside)
     }
     
@@ -119,22 +123,3 @@ extension SetupProfileViewController {
         ])
     }
 }
-
-////MARK: - SwiftUI
-//struct SetupProfileViewControllerProvider: PreviewProvider {
-//    static var previews: some View {
-//        ContainerView().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct ContainerView: UIViewControllerRepresentable {
-//        let viewController = SetupProfileViewController()
-//
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            return viewController
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}

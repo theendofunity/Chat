@@ -7,6 +7,9 @@
 
 import UIKit
 import SwiftUI
+import FirebaseAuth
+import GoogleSignIn
+import Firebase
 
 class LoginViewController: UIViewController {
     let welcomeLabel = UILabel(text: "Welcome back", font: .avenir26)
@@ -32,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
     weak var delegate: AuthNavigationDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,11 +57,9 @@ extension LoginViewController {
                     FirestoreService.shared.getUserData(user: user) { result in
                         switch result {
                         case .success(let mUser):
-                            let mainTabbar = MainTabBarViewController(currentUser: mUser)
-                            mainTabbar.modalPresentationStyle = .fullScreen
-                            self.present(mainTabbar, animated: true, completion: nil)
+                            self.openMain(user: mUser)
                         case .failure(_):
-                            self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                            self.openSetupProfile(user: user)
                         }
                     }
                 }
@@ -68,13 +69,47 @@ extension LoginViewController {
         }
     }
     
+    func openMain(user: MUser) {
+        let mainTabbar = MainTabBarViewController(currentUser: user)
+        mainTabbar.modalPresentationStyle = .fullScreen
+        self.present(mainTabbar, animated: true, completion: nil)
+    }
+    
+    func openSetupProfile(user: User) {
+        self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+    }
+    
     @objc func googleButtonTapped() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
+        let config = GIDConfiguration(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+            AuthService.shared.googleLogin(user: user, error: error) { result  in
+                switch result {
+                case .success(let user):
+                    FirestoreService.shared.getUserData(user: user) { result in
+                        switch result {
+                        case .success(let mUSer):
+                            let tabbar = MainTabBarViewController(currentUser: mUSer)
+                            tabbar.modalPresentationStyle = .fullScreen
+                            self.present(tabbar, animated: true)
+                        case .failure(_):
+                            self.showAlert(title: "Success", message: "Register completed") {
+                                self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    self.showError(error: error)
+                }
+            }
+        }
     }
     
     @objc func signUpButtonTapped() {
         print(#function)
-
+        
         dismiss(animated: true) {
             self.delegate?.openSignUp()
         }

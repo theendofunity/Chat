@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftUI
+import GoogleSignIn
+import Firebase
 
 class AuthViewController: UIViewController {
     let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
@@ -34,8 +36,6 @@ class AuthViewController: UIViewController {
         signUpViewController.delegate = self
         loginViewController.delegate = self
     }
-
-    
 }
 
 //MARK: - Setup Constraints
@@ -68,6 +68,31 @@ extension AuthViewController {
 
 extension AuthViewController {
     @objc func googleButtonTapped() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        let config = GIDConfiguration(clientID: clientID)
+
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+            AuthService.shared.googleLogin(user: user, error: error) { result  in
+                switch result {
+                case .success(let user):
+                    FirestoreService.shared.getUserData(user: user) { result in
+                        switch result {
+                        case .success(let mUSer):
+                            let tabbar = MainTabBarViewController(currentUser: mUSer)
+                            tabbar.modalPresentationStyle = .fullScreen
+                            self.present(tabbar, animated: true)
+                        case .failure(_):
+                            self.showAlert(title: "Success", message: "Register completed") {
+                                self.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    self.showError(error: error)
+                }
+            }
+        }
     }
     
     @objc func emailButtonTapped() {
