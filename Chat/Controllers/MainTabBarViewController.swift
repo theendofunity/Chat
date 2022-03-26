@@ -9,7 +9,16 @@ import UIKit
 import SwiftUI
 
 class MainTabBarViewController: UITabBarController {
-
+    private let currentUser: MUser
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -18,8 +27,8 @@ class MainTabBarViewController: UITabBarController {
     
     func setupTabBar() {
         tabBar.tintColor = .tabbarTintColor
-        let listViewController = ListViewController()
-        let peopleViewController = PeopleViewController()
+        let listViewController = ListViewController(currentUser: currentUser)
+        let peopleViewController = PeopleViewController(currentUser: currentUser)
         
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .medium)
         let conversationImage = UIImage(systemName: "bubble.left.and.bubble.right", withConfiguration: imageConfiguration)

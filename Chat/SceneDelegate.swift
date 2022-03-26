@@ -25,8 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let user = Auth.auth().currentUser {
             FirestoreService.shared.getUserData(user: user) { result in
                 switch result {
-                case .success(_):
-                    self.window?.rootViewController = MainTabBarViewController()
+                case .success(let mUser):
+                    let mainTabbar = MainTabBarViewController(currentUser: mUser)
+                    mainTabbar.modalPresentationStyle = .fullScreen
+                    self.window?.rootViewController = mainTabbar
                 case .failure(_):
                     self.window?.rootViewController = AuthViewController()
                 }

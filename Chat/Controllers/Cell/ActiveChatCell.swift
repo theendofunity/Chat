@@ -81,25 +81,3 @@ extension ActiveChatCell: SelfConfiguringCell {
         
     }
 }
-
-
-
-//MARK: - SwiftUI
-struct ActiveChatProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let tabBarVC = MainTabBarViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) -> MainTabBarViewController  {
-            return tabBarVC
-        }
-        
-        func updateUIViewController(_ uiViewController: ActiveChatProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ActiveChatProvider.ContainerView>) {
-            
-        }
-    }
-}

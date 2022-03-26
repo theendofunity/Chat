@@ -52,9 +52,11 @@ class SetupProfileViewController: UIViewController {
                                                 description: aboutMeTextField.text,
                                                 sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { result in
             switch result {
-            case .success(_):
+            case .success(let user):
                 self.showAlert(title: "Success", message: nil) {
-                    self.present(MainTabBarViewController(), animated: true, completion: nil)
+                    let mainTabbar = MainTabBarViewController(currentUser: user)
+                    mainTabbar.modalPresentationStyle = .fullScreen
+                    self.present(mainTabbar, animated: true, completion: nil)
                 }
             case .failure(let error):
                 self.showError(error: error)
