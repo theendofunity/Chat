@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 class PeopleViewController: UIViewController {
     enum Section: Int, CaseIterable {
@@ -21,16 +22,22 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    let users: [MUser] = []
+    var users: [MUser] = []
+    
     var collectionView: UICollectionView! = nil
     var dataSource: UICollectionViewDiffableDataSource<Section, MUser>! = nil
     
     private let currentUser: MUser
+    private var listener: ListenerRegistration?
     
     init(currentUser: MUser) {
         self.currentUser = currentUser
         super.init(nibName: nil, bundle: nil)
         self.title = currentUser.username
+    }
+    
+    deinit {
+        listener?.remove()
     }
     
     required init?(coder: NSCoder) {
@@ -46,7 +53,16 @@ class PeopleViewController: UIViewController {
         
         setupCollectionView()
         setupDataSource()
-        reloadData(with: nil)
+        
+        listener = ListenerService.shared.usersObserve(users: users, completion: { result in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.reloadData(with: nil)
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        })
     }
     
     func setupNavigationBar() {

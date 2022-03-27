@@ -47,6 +47,27 @@ struct MUser: Hashable, Decodable {
         self.sex = sex
     }
     
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
+        
+        guard let username = data["username"] as? String,
+              let uid = data["uid"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+              let email = data["email"] as? String,
+              let sex = data["sex"] as? String,
+              let description = data["description"] as? String
+        else {
+            return nil
+        }
+        
+        self.username = username
+        self.id = uid
+        self.avatarStringURL = avatarStringURL
+        self.email = email
+        self.description = description
+        self.sex = sex
+    }
+    
     var representation: [String : Any] {
         let rep: [String : Any] = [
             "username" : username,

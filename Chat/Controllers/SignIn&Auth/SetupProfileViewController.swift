@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import FirebaseAuth
+import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     let setUpProfileLabel = UILabel(text: "Set up profile", font: .avenir26)
@@ -30,6 +31,14 @@ class SetupProfileViewController: UIViewController {
     init(currentUser: User) {
         self.currentUser = currentUser
         super.init(nibName: nil, bundle: nil)
+        
+        if let username = currentUser.displayName {
+            fullNameTextField.text = username
+        }
+        
+        if let imageUrl = currentUser.photoURL {
+            fillImageView.circleImageView.sd_setImage(with: imageUrl)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -40,10 +49,6 @@ class SetupProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
-        
-        if let username = currentUser.displayName {
-            fullNameTextField.text = username
-        }
         
         goToChatsButton.addTarget(self, action: #selector(goToChats), for: .touchUpInside)
         fillImageView.addButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
