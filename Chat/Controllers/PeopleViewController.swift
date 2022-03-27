@@ -87,6 +87,7 @@ class PeopleViewController: UIViewController {
         collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuseId)
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.backgroundColor = .mainWhite
+        collectionView.delegate = self
         
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(collectionView)
@@ -212,5 +213,15 @@ extension PeopleViewController {
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         reloadData(with: searchText)
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+
+extension PeopleViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        let profileViewController = ProfileViewController(user: user)
+        present(profileViewController, animated: true)
     }
 }

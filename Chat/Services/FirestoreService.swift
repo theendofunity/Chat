@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirestoreService {
     static let shared = FirestoreService()
@@ -16,6 +17,8 @@ class FirestoreService {
     private var usersRef: CollectionReference {
         return db.collection("users")
     }
+    
+    private var currentUser: MUser?
     
     func saveProfileWith(id: String, email: String, username: String?, avatarImage: UIImage?, description: String?, sex: String?, completion: @escaping ((Result<MUser, Error>) -> Void)) {
         
@@ -69,7 +72,35 @@ class FirestoreService {
                 completion(.failure(UserError.cantUnwrapUserData))
                 return
             }
+            self.currentUser = mUser
             completion(.success(mUser))
+        }
+    }
+    
+    func createWaitingChat(message: String, receiver: MUser, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let currentUser = currentUser else { return }
+        
+        let path = ["users", receiver.id, "waitingChats"].joined(separator: "/")
+        let collection = db.collection(path)
+        let messageRef = collection.document(currentUser.id).collection("messages")
+        
+        let message = Message(user: currentUser, content: message)
+        let chat = Chat(friendUsername: currentUser.username,
+                        friendImageString: currentUser.avatarStringURL,
+                        lastMessageContent: message.content,
+                        friendId: currentUser.id)
+        collection.document(currentUser.id).setData(chat.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            messageRef.addDocument(data: message.representation) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(Void()))
+            }
         }
     }
 }

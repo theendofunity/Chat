@@ -42,7 +42,7 @@ extension WaitingChatCell: SelfConfiguringCell {
     func configure<U>(with value: U) where U : Hashable {
         guard let chat = value as? Chat else { return }
         
-        userImageView.image = UIImage(named: chat.userImageString)
+        userImageView.image = UIImage(named: chat.friendImageString)
     }
     
     static var reuseId: String {
