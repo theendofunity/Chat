@@ -17,33 +17,45 @@ class FirestoreService {
         return db.collection("users")
     }
     
-    func saveProfileWith(id: String, email: String, username: String?, avatarImageString: String?, description: String?, sex: String?, completion: @escaping ((Result<MUser, Error>) -> Void)) {
+    func saveProfileWith(id: String, email: String, username: String?, avatarImage: UIImage?, description: String?, sex: String?, completion: @escaping ((Result<MUser, Error>) -> Void)) {
         
         guard Validators.isFilled(fields: [username, description, sex]) else {
             completion(.failure(UserError.notFilled))
             return
         }
         
-        guard let username = username,
-        let description = description,
-        let sex = sex
-        else {
+        guard let avatarImage = avatarImage else {
+            completion(.failure(UserError.photoNotExist))
             return
         }
 
-        let mUser = MUser(username: username,
-                          avatarStringURL: avatarImageString ?? "not exist",
+        guard let username = username,
+        let description = description,
+        let sex = sex else { return }
+
+        var mUser = MUser(username: username,
+                          avatarStringURL: "not exist",
                           id: id,
                           email: email,
                           description: description,
                           sex: sex)
-        usersRef.document(mUser.id).setData(mUser.representation) { error in
-            if let error = error {
+        StorageService.shared.uploadPhoto(image: avatarImage) { [self] result in
+            switch result {
+                
+            case .success(let url):
+                mUser.avatarStringURL = url.absoluteString
+                self.usersRef.document(mUser.id).setData(mUser.representation) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(mUser))
+                    }
+                }
+            case .failure(let error):
                 completion(.failure(error))
-            } else {
-                completion(.success(mUser))
             }
         }
+        
     }
     
     func getUserData(user: User, completion: @escaping ((Result<MUser, Error>) -> Void)) {

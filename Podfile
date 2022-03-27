@@ -11,6 +11,7 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'GoogleSignIn'
+pod 'Firebase/Storage'
 
 # Optionally, include the Swift extensions if you're using Swift.
  

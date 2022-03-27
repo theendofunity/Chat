@@ -46,13 +46,14 @@ class SetupProfileViewController: UIViewController {
         }
         
         goToChatsButton.addTarget(self, action: #selector(goToChats), for: .touchUpInside)
+        fillImageView.addButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
     
     @objc func goToChats() {
         FirestoreService.shared.saveProfileWith(id: currentUser.uid,
                                                 email: currentUser.email!,
                                                 username: fullNameTextField.text,
-                                                avatarImageString: "nil",
+                                                avatarImage: fillImageView.circleImageView.image,
                                                 description: aboutMeTextField.text,
                                                 sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { result in
             switch result {
@@ -66,6 +67,13 @@ class SetupProfileViewController: UIViewController {
                 self.showError(error: error)
             }
         }
+    }
+    
+    @objc func plusButtonTapped() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
     }
 }
 
@@ -121,5 +129,17 @@ extension SetupProfileViewController {
             stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
         ])
+    }
+}
+
+extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        fillImageView.circleImageView.image = image
     }
 }
