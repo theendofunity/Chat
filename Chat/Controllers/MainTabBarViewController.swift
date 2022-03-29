@@ -35,10 +35,9 @@ class MainTabBarViewController: UITabBarController {
         let peopleImage = UIImage(systemName: "person.2", withConfiguration: imageConfiguration)
         
         viewControllers = [
-            createNavigationController(rootViewController: listViewController, title: "Conversations", image: conversationImage),
-            createNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage)
+            createNavigationController(rootViewController: peopleViewController, title: "People", image: peopleImage),
+            createNavigationController(rootViewController: listViewController, title: "Conversations", image: conversationImage)
         ]
-        selectedIndex = 1
     }
     
     func setupSearchBar() {

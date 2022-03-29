@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
 class ChatRequestViewController: UIViewController {
     let containerView = UIView()
@@ -16,15 +17,49 @@ class ChatRequestViewController: UIViewController {
     let acceptButton = UIButton(title: "Accept", titleColor: .white, backgroundColor: .black, font: .lao20, isShadow: false, cornerRadius: 10)
     let denyButton = UIButton(title: "Deny", titleColor: .buttonRed, backgroundColor: .mainWhite, font: .lao20, isShadow: false, cornerRadius: 10)
     
+    weak var delegate: WaitingChatsNavigation?
+    private var chat: Chat
+    
+    init(chat: Chat) {
+        self.chat = chat
+        self.nameLabel.text = chat.friendUsername
+        self.aboutLabel.text = chat.lastMessageContent
+        
+        if let url = URL(string: chat.friendImageString) {
+            imageView.sd_setImage(with: url)
+        }
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         acceptButton.applyGradient(cornerRadius: 10)
+    }
+    
+    @objc func denyButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.removeWaitingChat(chat: self.chat)
+        }
+    }
+    
+    @objc func acceptButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.moveToActive(chat: self.chat)
+        }
     }
 }
 
@@ -84,24 +119,5 @@ extension ChatRequestViewController {
             buttonStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
             buttonStack.heightAnchor.constraint(equalToConstant: 56)
         ])
-    }
-}
-
-//MARK: - SwiftUI
-struct ChatRequestViewControllerProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        let viewController = ChatRequestViewController()
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-            
-        }
     }
 }

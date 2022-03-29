@@ -48,6 +48,7 @@
 		D8D4B54B27E108BD008FE232 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = D8D4B54927E108BD008FE232 /* waitingChats.json */; };
 		D8D4B54D27E108E2008FE232 /* Bundle + Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B54C27E108E2008FE232 /* Bundle + Decodable.swift */; };
 		D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4B55027E11552008FE232 /* ActiveChatCell.swift */; };
+		D8D983D427F3783E0024FE31 /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D983D327F3783E0024FE31 /* WaitingChatsNavigation.swift */; };
 		D8E70B1B27E1E272003E2669 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1A27E1E272003E2669 /* GradientView.swift */; };
 		D8E70B1D27E1E308003E2669 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1C27E1E308003E2669 /* Point.swift */; };
 		D8E70B1F27E1EDFD003E2669 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E70B1E27E1EDFD003E2669 /* WaitingChatCell.swift */; };
@@ -106,6 +107,7 @@
 		D8D4B54927E108BD008FE232 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		D8D4B54C27E108E2008FE232 /* Bundle + Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Decodable.swift"; sourceTree = "<group>"; };
 		D8D4B55027E11552008FE232 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
+		D8D983D327F3783E0024FE31 /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		D8E70B1A27E1E272003E2669 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D8E70B1C27E1E308003E2669 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		D8E70B1E27E1EDFD003E2669 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				D8E70B2127E1EFAA003E2669 /* SelfConfiguringCell.swift */,
 				D83A0AC727E7B52D0078729C /* AuthNavigationDelegate.swift */,
+				D8D983D327F3783E0024FE31 /* WaitingChatsNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				D8D4B54627E0EF43008FE232 /* ListViewController.swift in Sources */,
 				D88AE2E027E353CE003DD100 /* UserCell.swift in Sources */,
 				D8D4B54427E0EEC8008FE232 /* PeopleViewController.swift in Sources */,
+				D8D983D427F3783E0024FE31 /* WaitingChatsNavigation.swift in Sources */,
 				D86BDA5027E5C2C2001480E8 /* UIView + Extension.swift in Sources */,
 				D819321927D8FEF9004F96B4 /* UILabel + Extension.swift in Sources */,
 				D8D35D3C27F0E36C00D8EF0B /* UIApplication + Extension.swift in Sources */,

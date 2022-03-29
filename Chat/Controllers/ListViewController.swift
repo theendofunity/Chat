@@ -7,11 +7,10 @@
 
 import UIKit
 import SwiftUI
-
+import FirebaseFirestore
 
 
 class ListViewController: UIViewController {
-    
     enum Section: Int, CaseIterable {
         case waitingChats
         case activeChats
@@ -29,8 +28,10 @@ class ListViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Chat>?
     var collectionView: UICollectionView!
     
+    var waitingChatsListener: ListenerRegistration?
+    
     let activeChats: [Chat] = []
-    let waitingChats: [Chat] = []
+    var waitingChats: [Chat] = []
     
     private let currentUser: MUser
     
@@ -38,6 +39,10 @@ class ListViewController: UIViewController {
         self.currentUser = currentUser
         super.init(nibName: nil, bundle: nil)
         self.title = currentUser.username
+    }
+    
+    deinit {
+        waitingChatsListener?.remove()
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +56,21 @@ class ListViewController: UIViewController {
         
         setupDataSource()
         reloadData()
+        
+        waitingChatsListener = ListenerService.shared.waitingChatsObserve(chats: waitingChats, completion: { result in
+            switch result {
+            case .success(let chats):
+                if !self.waitingChats.isEmpty, self.waitingChats.count <= chats.count {
+                    let requestViewController = ChatRequestViewController(chat: chats.last!)
+                    requestViewController.delegate = self 
+                    self.present(requestViewController, animated: true)
+                }
+                self.waitingChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        })
     }
     
     func setupCollectionView() {
@@ -60,6 +80,7 @@ class ListViewController: UIViewController {
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
         collectionView.backgroundColor = .mainWhite
+        collectionView.delegate = self
         
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(collectionView)
@@ -201,4 +222,40 @@ extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
     }
+}
+
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let chat = dataSource?.itemIdentifier(for: indexPath),
+              let section = Section(rawValue: indexPath.section) else {
+            return
+        }
+        switch section {
+        case .waitingChats:
+            let vc = ChatRequestViewController(chat: chat)
+            vc.delegate = self
+            self.present(vc, animated: true)
+        case .activeChats:
+            break
+        }
+    }
+}
+
+extension ListViewController: WaitingChatsNavigation {
+    func removeWaitingChat(chat: Chat) {
+        FirestoreService.shared.removeWaitingChat(chat: chat) { result in
+            switch result {
+            case .success():
+                self.showAlert(title: "Success", message: "Chat with \(chat.friendUsername) was deleted")
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        }
+    }
+    
+    func moveToActive(chat: Chat) {
+        
+    }
+    
+    
 }
