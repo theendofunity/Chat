@@ -38,6 +38,8 @@
 		D86BDA5427E72590001480E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D86BDA5327E72590001480E8 /* GoogleService-Info.plist */; };
 		D88AE2E027E353CE003DD100 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88AE2DF27E353CE003DD100 /* UserCell.swift */; };
 		D8B0184F27E4E96100BCBC86 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */; };
+		D8CE908427FA043800CFC836 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE908327FA043800CFC836 /* ChatViewController.swift */; };
+		D8CE908627FA07E400CFC836 /* SenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE908527FA07E400CFC836 /* SenderModel.swift */; };
 		D8D35D3A27F0D62100D8EF0B /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35D3927F0D62100D8EF0B /* ListenerService.swift */; };
 		D8D35D3C27F0E36C00D8EF0B /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35D3B27F0E36C00D8EF0B /* UIApplication + Extension.swift */; };
 		D8D35D3E27F0E8A800D8EF0B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D35D3D27F0E8A800D8EF0B /* Message.swift */; };
@@ -97,6 +99,8 @@
 		D86BDA5327E72590001480E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D88AE2DF27E353CE003DD100 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D8CE908327FA043800CFC836 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D8CE908527FA07E400CFC836 /* SenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderModel.swift; sourceTree = "<group>"; };
 		D8D35D3927F0D62100D8EF0B /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		D8D35D3B27F0E36C00D8EF0B /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		D8D35D3D27F0E8A800D8EF0B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				D8D4B54327E0EEC8008FE232 /* PeopleViewController.swift */,
 				D8B0184E27E4E96100BCBC86 /* ProfileViewController.swift */,
 				D86BDA5127E6114E001480E8 /* ChatRequestViewController.swift */,
+				D8CE908327FA043800CFC836 /* ChatViewController.swift */,
 				D8D4B53F27E0EDE1008FE232 /* SignIn&Auth */,
 				D8D4B54F27E11535008FE232 /* Cell */,
 				D8E70B2527E23CAE003E2669 /* Header */,
@@ -293,6 +298,7 @@
 				D8E70B2827E23E66003E2669 /* Chat.swift */,
 				D8E70B2A27E23E7B003E2669 /* MUser.swift */,
 				D8D35D3D27F0E8A800D8EF0B /* Message.swift */,
+				D8CE908527FA07E400CFC836 /* SenderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */,
 				D81ACAE627D7C4030050B4AE /* AuthViewController.swift in Sources */,
 				D83A0AC327E7A6B10078729C /* Validators.swift in Sources */,
+				D8CE908427FA043800CFC836 /* ChatViewController.swift in Sources */,
 				D819321227D8F776004F96B4 /* UIButton + Extension.swift in Sources */,
 				D8D35D3E27F0E8A800D8EF0B /* Message.swift in Sources */,
 				D8E926B727DE72B70078B45D /* SetupProfileViewController.swift in Sources */,
@@ -488,6 +495,7 @@
 				D83A0AC127E7A1810078729C /* UIViewController + Extension.swift in Sources */,
 				D83A0ABF27E79D210078729C /* AuthService.swift in Sources */,
 				D8D4B54D27E108E2008FE232 /* Bundle + Decodable.swift in Sources */,
+				D8CE908627FA07E400CFC836 /* SenderModel.swift in Sources */,
 				D8E70B1D27E1E308003E2669 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

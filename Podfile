@@ -13,6 +13,7 @@ pod 'Firebase/Firestore'
 pod 'GoogleSignIn'
 pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 5.0'
+pod 'MessageKit'
 
 # Optionally, include the Swift extensions if you're using Swift.
  
