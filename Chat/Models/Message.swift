@@ -63,6 +63,10 @@ extension Message: MessageType {
     var kind: MessageKind {
         return .text(content)
     }
-    
-    
+}
+
+extension Message: Comparable {
+    static func < (lhs: Message, rhs: Message) -> Bool {
+        return lhs.sentDate < rhs.sentDate
+    }
 }
