@@ -29,8 +29,9 @@ class ListViewController: UIViewController {
     var collectionView: UICollectionView!
     
     var waitingChatsListener: ListenerRegistration?
+    var activeChatsListener: ListenerRegistration?
     
-    let activeChats: [Chat] = []
+    var activeChats: [Chat] = []
     var waitingChats: [Chat] = []
     
     private let currentUser: MUser
@@ -43,6 +44,7 @@ class ListViewController: UIViewController {
     
     deinit {
         waitingChatsListener?.remove()
+        activeChatsListener?.remove()
     }
     
     required init?(coder: NSCoder) {
@@ -66,6 +68,16 @@ class ListViewController: UIViewController {
                     self.present(requestViewController, animated: true)
                 }
                 self.waitingChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        })
+        
+        activeChatsListener = ListenerService.shared.activeChatsObserve(chats: activeChats, completion: { result in
+            switch result {
+            case .success(let chats):
+                self.activeChats = chats
                 self.reloadData()
             case .failure(let error):
                 self.showError(error: error)
@@ -254,7 +266,14 @@ extension ListViewController: WaitingChatsNavigation {
     }
     
     func moveToActive(chat: Chat) {
-        
+        FirestoreService.shared.changeToActive(chat: chat) { result in
+            switch result {
+            case .success():
+                self.showAlert(title: "Success", message: "Chat with \(chat.friendUsername) was beginen")
+            case .failure(let error):
+                self.showError(error: error)
+            }
+        }
     }
     
     

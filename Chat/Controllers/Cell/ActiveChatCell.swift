@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
 class ActiveChatCell: UICollectionViewCell {
     let userImageView = UIImageView()
@@ -68,16 +69,12 @@ extension ActiveChatCell: SelfConfiguringCell {
     func configure<U>(with value: U) where U : Hashable {
         guard let chat = value as? Chat else { return }
         
-        userImageView.image = UIImage(named: chat.friendImageString)
+        userImageView.sd_setImage(with: URL(string: chat.friendImageString))
         usernameLabel.text = chat.friendUsername
         lastMessageLabel.text = chat.lastMessageContent
     }
     
     static var reuseId: String {
         return NSStringFromClass(ActiveChatCell.self)
-    }
-    
-    func configure(with value: Chat) {
-        
     }
 }
