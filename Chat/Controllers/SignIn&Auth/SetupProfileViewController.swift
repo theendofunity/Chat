@@ -48,6 +48,7 @@ class SetupProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        sexSegmentedControl.selectedSegmentIndex = 0
         setupConstraints()
         
         goToChatsButton.addTarget(self, action: #selector(goToChats), for: .touchUpInside)

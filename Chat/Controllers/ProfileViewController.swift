@@ -67,6 +67,7 @@ extension ProfileViewController {
         
         self.dismiss(animated: true) {
             FirestoreService.shared.createWaitingChat(message: message, receiver: self.user) { result in
+                print(result)
                 switch result {
                 case .success():
                     UIApplication.getTopViewController()?.showAlert(title: "Success", message: "You're message was sended")

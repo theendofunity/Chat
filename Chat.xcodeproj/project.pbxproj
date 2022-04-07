@@ -25,6 +25,8 @@
 		D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */; };
 		D829448B27F0551400CDDEA6 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829448A27F0551400CDDEA6 /* StorageService.swift */; };
 		D829448D27F0590000CDDEA6 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829448C27F0590000CDDEA6 /* UIImage + Extension.swift */; };
+		D82BF88C27FF571700249121 /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BF88B27FF571700249121 /* Completions.swift */; };
+		D82BF88E27FF62FA00249121 /* UIScrollView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BF88D27FF62FA00249121 /* UIScrollView + Extension.swift */; };
 		D832250627EA2FB7000FF0B4 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D832250527EA2FB7000FF0B4 /* UserError.swift */; };
 		D834CC3927EA2A04002F594E /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834CC3827EA2A04002F594E /* FirestoreService.swift */; };
 		D83A0ABF27E79D210078729C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0ABE27E79D210078729C /* AuthService.swift */; };
@@ -86,6 +88,8 @@
 		D81B085327E09F7500B26264 /* UISegmentedControl + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl + Extension.swift"; sourceTree = "<group>"; };
 		D829448A27F0551400CDDEA6 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		D829448C27F0590000CDDEA6 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		D82BF88B27FF571700249121 /* Completions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completions.swift; sourceTree = "<group>"; };
+		D82BF88D27FF62FA00249121 /* UIScrollView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extension.swift"; sourceTree = "<group>"; };
 		D832250527EA2FB7000FF0B4 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		D834CC3827EA2A04002F594E /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		D83A0ABE27E79D210078729C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				D83A0AC027E7A1810078729C /* UIViewController + Extension.swift */,
 				D829448C27F0590000CDDEA6 /* UIImage + Extension.swift */,
 				D8D35D3B27F0E36C00D8EF0B /* UIApplication + Extension.swift */,
+				D82BF88D27FF62FA00249121 /* UIScrollView + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				D83A0AC227E7A6B10078729C /* Validators.swift */,
 				D83A0AC427E7ABE70078729C /* AuthError.swift */,
 				D832250527EA2FB7000FF0B4 /* UserError.swift */,
+				D82BF88B27FF571700249121 /* Completions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				D8E70B1B27E1E272003E2669 /* GradientView.swift in Sources */,
 				D83A0AC827E7B52D0078729C /* AuthNavigationDelegate.swift in Sources */,
 				D81B085427E09F7500B26264 /* UISegmentedControl + Extension.swift in Sources */,
+				D82BF88E27FF62FA00249121 /* UIScrollView + Extension.swift in Sources */,
 				D8D4B54227E0EE6A008FE232 /* MainTabBarViewController.swift in Sources */,
 				D8D4B55127E11552008FE232 /* ActiveChatCell.swift in Sources */,
 				D81ACAE627D7C4030050B4AE /* AuthViewController.swift in Sources */,
@@ -495,6 +502,7 @@
 				D83A0AC127E7A1810078729C /* UIViewController + Extension.swift in Sources */,
 				D83A0ABF27E79D210078729C /* AuthService.swift in Sources */,
 				D8D4B54D27E108E2008FE232 /* Bundle + Decodable.swift in Sources */,
+				D82BF88C27FF571700249121 /* Completions.swift in Sources */,
 				D8CE908627FA07E400CFC836 /* SenderModel.swift in Sources */,
 				D8E70B1D27E1E308003E2669 /* Point.swift in Sources */,
 			);
