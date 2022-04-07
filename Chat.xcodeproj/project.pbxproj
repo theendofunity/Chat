@@ -27,6 +27,7 @@
 		D829448D27F0590000CDDEA6 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829448C27F0590000CDDEA6 /* UIImage + Extension.swift */; };
 		D82BF88C27FF571700249121 /* Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BF88B27FF571700249121 /* Completions.swift */; };
 		D82BF88E27FF62FA00249121 /* UIScrollView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BF88D27FF62FA00249121 /* UIScrollView + Extension.swift */; };
+		D82BF89027FF737200249121 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BF88F27FF737200249121 /* ImageItem.swift */; };
 		D832250627EA2FB7000FF0B4 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D832250527EA2FB7000FF0B4 /* UserError.swift */; };
 		D834CC3927EA2A04002F594E /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D834CC3827EA2A04002F594E /* FirestoreService.swift */; };
 		D83A0ABF27E79D210078729C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A0ABE27E79D210078729C /* AuthService.swift */; };
@@ -90,6 +91,7 @@
 		D829448C27F0590000CDDEA6 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		D82BF88B27FF571700249121 /* Completions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completions.swift; sourceTree = "<group>"; };
 		D82BF88D27FF62FA00249121 /* UIScrollView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Extension.swift"; sourceTree = "<group>"; };
+		D82BF88F27FF737200249121 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		D832250527EA2FB7000FF0B4 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		D834CC3827EA2A04002F594E /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		D83A0ABE27E79D210078729C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				D8E70B2A27E23E7B003E2669 /* MUser.swift */,
 				D8D35D3D27F0E8A800D8EF0B /* Message.swift */,
 				D8CE908527FA07E400CFC836 /* SenderModel.swift */,
+				D82BF88F27FF737200249121 /* ImageItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82BF89027FF737200249121 /* ImageItem.swift in Sources */,
 				D819322527D90EBE004F96B4 /* OneLineTextField.swift in Sources */,
 				D819322227D90C41004F96B4 /* SignUpViewController.swift in Sources */,
 				D8E70B2227E1EFAA003E2669 /* SelfConfiguringCell.swift in Sources */,

@@ -12,3 +12,4 @@ typealias ChatCompletion = (Result<Chat, Error>) -> Void
 typealias MessagesCompletion = (Result<[Message], Error>) -> Void
 typealias MessageCompletion = (Result<Message, Error>) -> Void
 typealias UserCompletion = (Result<MUser, Error>) -> Void
+typealias UrlCompletion = (Result<URL, Error>) -> Void
